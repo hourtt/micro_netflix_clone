@@ -1,19 +1,19 @@
 // ignore_for_file: unused_import
 
 import 'dart:convert';
-import 'package:netflix_clone/api/constants.dart';
 import 'package:http/http.dart' as http;
+import 'package:netflix_clone/api/constants.dart';
 import 'package:netflix_clone/model/movie_model.dart';
 
 
 class Api {
   //TODO: Create popularApiUrl and topRatedApiUrl with refering upComingApiUrl. You can check 'get' in TMDB website and add "?api_key=$apiKey"
   final upComingApiUrl =
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=f81887c0502036c33d405f6971fddacf";
+      "https://api.themoviedb.org/3/movie/upcoming?api_key=$apiKey";
   final popularApiUrl =
-      "https://api.themoviedb.org/3/movie/popular?api_key=f81887c0502036c33d405f6971fddacf";
+      "https://api.themoviedb.org/3/movie/popular?api_key=$apiKey";
   final topRatedApiUrl =
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=848b2d83aeff2b2481c84ae8831ffc39";
+      "https://api.themoviedb.org/3/movie/top_rated?api_key=$apiKey";
 
   Future<List<Movie>> getUpcomingMovies() async {
     final response = await http.get(Uri.parse(upComingApiUrl));
