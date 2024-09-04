@@ -6,6 +6,7 @@ import 'package:netflix_clone/api/constants.dart';
 import 'package:netflix_clone/model/movie_model.dart';
 
 
+
 class Api {
   //TODO: Create popularApiUrl and topRatedApiUrl with refering upComingApiUrl. You can check 'get' in TMDB website and add "?api_key=$apiKey"
   final upComingApiUrl =
