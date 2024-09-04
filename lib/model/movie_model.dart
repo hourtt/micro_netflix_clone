@@ -21,7 +21,7 @@ class Movie {
       backDropPath: map['backdrop_path'],
       //TODO: Add overview, posterPath, releaseDate. But you should know you have to use _ for bring data from map. Ex) backDropPath: map['backdropPath'] XXXXX  backDropPath: map['backdrop_path'] OOOO,
       overview: map['overview'],
-      posterPath: map['posterPath'],
+      posterPath: map['poster_path'], //* Change from posterPath to poster_path
       releaseDate: map['release_date'],
     );
   }
