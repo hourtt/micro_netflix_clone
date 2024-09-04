@@ -72,8 +72,8 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 20),
-                height: 200,
+                margin: const EdgeInsets.symmetric(vertical: 10),
+                height: 145,
                 child: FutureBuilder(
                   future: upcomingMovies,
                   builder: (context, snapshot) {
@@ -81,7 +81,7 @@ class _HomeState extends State<Home> {
                       return const Center(
                         child: CircularProgressIndicator(
                           color: Colors.red,
-                          backgroundColor: Colors.white,
+                          backgroundColor: Color.fromRGBO(255, 255, 255, 1),
                         ),
                       );
                     }
@@ -92,7 +92,7 @@ class _HomeState extends State<Home> {
                         final movie = movies[index];
                         return InkWell(
                           onTap: () {
-                            Navigator.push(     
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => MovieDetailScreen(
@@ -101,33 +101,55 @@ class _HomeState extends State<Home> {
                               ),
                             );
                           },
-                          child: Container(
-                            width: 200,
-                            margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
-                            child: ClipRRect(
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(10.0)),
-                              child: Image.network(
-                                "https://image.tmdb.org/t/p/original/${movie.backDropPath}",
-                                height:120,
-                                fit: BoxFit.cover,
-                                width: double.infinity,
-                              ),
+                          child: Flexible(
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: 120,
+                                  margin:
+                                      const EdgeInsets.symmetric(horizontal: 20.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: const BorderRadius.all(
+                                        Radius.circular(5.0)),
+                                    child: Image.network(
+                                      "https://image.tmdb.org/t/p/original/${movie.backDropPath}",
+                                      height: 95,
+                                      fit: BoxFit.cover,
+                                      width: double.infinity,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 10),
+                                Flexible(
+                                  child: Text(
+                                    movie.title,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                    overflow: TextOverflow.ellipsis,
+                                    maxLines:movie.title.length, //* Use movie.title.length
+                                    softWrap:true,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         );
                       },
                       options: CarouselOptions(
-                        height: 200.0,
+                        height: 180.0, // Adjusted overall carousel height
                         enlargeCenterPage: true,
                         autoPlay: true,
-                        aspectRatio: 16 / 9,
+                        aspectRatio: 2 / 3,
                         enableInfiniteScroll: true,
-                        viewportFraction: 0.8,
+                        viewportFraction: 0.4,
                       ),
                     );
                   },
@@ -175,7 +197,7 @@ class _HomeState extends State<Home> {
                             );
                           },
                           child: Container(
-                            width: 200,
+                            width: 122,
                             margin: const EdgeInsets.symmetric(horizontal: 5.0),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -185,11 +207,11 @@ class _HomeState extends State<Home> {
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10.0)),
                               child: Image.network(
-                                  "https://image.tmdb.org/t/p/original/${movie.posterPath}",
-                                  height: 120,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                ),
+                                "https://image.tmdb.org/t/p/original/${movie.posterPath}",
+                                height: 115,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         );
@@ -200,7 +222,7 @@ class _HomeState extends State<Home> {
                         autoPlay: true,
                         aspectRatio: 16 / 9,
                         enableInfiniteScroll: true,
-                        viewportFraction: 0.8,
+                        viewportFraction: 0.5,
                       ),
                     );
                   },
@@ -244,7 +266,7 @@ class _HomeState extends State<Home> {
                             );
                           },
                           child: Container(
-                            width: 200,
+                            width: 122,
                             margin: const EdgeInsets.symmetric(horizontal: 5.0),
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -253,12 +275,12 @@ class _HomeState extends State<Home> {
                             child: ClipRRect(
                               borderRadius:
                                   const BorderRadius.all(Radius.circular(10.0)),
-                             child: Image.network(
-                                  "https://image.tmdb.org/t/p/original/${movie.posterPath}",
-                                  height: 120,
-                                  width: double.infinity,
-                                  fit: BoxFit.cover,
-                                ),
+                              child: Image.network(
+                                "https://image.tmdb.org/t/p/original/${movie.posterPath}",
+                                height: 150,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
                         );
@@ -269,7 +291,7 @@ class _HomeState extends State<Home> {
                         autoPlay: true,
                         aspectRatio: 16 / 9,
                         enableInfiniteScroll: true,
-                        viewportFraction: 0.8,
+                        viewportFraction: 0.5,
                       ),
                     );
                   },
